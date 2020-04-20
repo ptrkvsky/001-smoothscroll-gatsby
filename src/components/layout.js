@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
-
+import Scrollbar from 'react-smooth-scrollbar';
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -24,8 +24,11 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <Scrollbar>
+    <div style={{maxHeight: '100vh'}}>
+
       <Header siteTitle={data.site.siteMetadata.title} />
+      
       <div
         style={{
           margin: `0 auto`,
@@ -39,8 +42,11 @@ const Layout = ({ children }) => {
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
+        
       </div>
-    </>
+      
+    </div>
+    </Scrollbar>
   )
 }
 
