@@ -10,11 +10,14 @@ const MainTitle = styled("h1")`
     line-height: 1;
 
     font-family: ${theme.fonts.title};
-    span{
-        display: block;
-        border-bottom: 8px solid #000;
-        margin-bottom: 50px;
+    .separation{
+        position: absolute; width: 20vw; height: 10px; background: #000;
     }
 `
 
-export { MainTitle }
+const SectionWork = styled("section")` 
+    background: #000;
+    padding: 10vh;
+`
+
+export { MainTitle, SectionWork }

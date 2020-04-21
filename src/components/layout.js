@@ -16,6 +16,10 @@ const Layout = ({ children }) => {
   return (
     <>
     <GlobalStyle />
+    <div className="logo">
+        <span className="item">KOV</span>
+        <span className="item">DEV</span>
+    </div>
     <Scrollbar damping={0.05} >
     <div style={{maxHeight: '100vh'}}>      
       <div
@@ -25,7 +29,10 @@ const Layout = ({ children }) => {
           padding: `33vh 1.0875rem`,
         }}
       >
-        <main>{children}</main>
+        <main>
+
+          {children}
+        </main>
 
         
       </div>
