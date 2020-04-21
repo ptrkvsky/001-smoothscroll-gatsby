@@ -4,7 +4,7 @@ const theme = {
     primary: '#230066',
   },
   bg: {
-    main: '#0a5650',
+    main: '#ffda00',
   },
   fonts: {
     primary: "'Open Sans', serif",
@@ -17,5 +17,7 @@ const theme = {
   radius: '4px',
   maxWidth: '960px',
 }
+
+
 
 export default theme

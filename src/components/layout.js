@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
   return (
     <>
     <GlobalStyle />
-    <Scrollbar>
+    <Scrollbar damping={0.05} >
     <div style={{maxHeight: '100vh'}}>      
       <div
         style={{
