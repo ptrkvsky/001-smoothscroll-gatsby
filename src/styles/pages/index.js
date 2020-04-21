@@ -4,7 +4,7 @@ import theme from '../theme'
 
 const MainTitle = styled("h1")` 
     text-transform: uppercase;
-    font-size: 40vh;
+    font-size: 30vh;
     font-family: 'Saol Display Regular',serif;
     text-align: right;
     line-height: 1;
