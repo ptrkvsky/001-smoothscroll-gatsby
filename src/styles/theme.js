@@ -1,10 +1,10 @@
 const theme = {
   colors: {
-    main: '#0c0c0c',
+    main: '#222328',
     primary: '#230066',
   },
   bg: {
-    main: '#ffda00',
+    main: '#fcd645',
   },
   fonts: {
     primary: "'Open Sans', serif",
@@ -17,7 +17,5 @@ const theme = {
   radius: '4px',
   maxWidth: '960px',
 }
-
-
 
 export default theme
