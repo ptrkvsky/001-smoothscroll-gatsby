@@ -144,21 +144,34 @@ export default function GlobalStyle() {
         /* STYLES GLOBAL */
         /* ------------- */
         @font-face {
-          font-family: "Saol Display Regular";
-          src: url("//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.eot");
-          src: url("//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.eot?#iefix")
-              format("embedded-opentype"),
-            url("//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.woff2")
-              format("woff2"),
-            url("//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.woff")
-              format("woff"),
-            url("//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.ttf")
-              format("truetype"),
-            url("//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.svg#Saol Display Regular")
-              format("svg");
+          font-family: 'Saol Display Regular';
+          src: url('//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.eot');
+          src: url('//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.eot?#iefix')
+              format('embedded-opentype'),
+            url('//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.woff2')
+              format('woff2'),
+            url('//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.woff')
+              format('woff'),
+            url('//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.ttf')
+              format('truetype'),
+            url('//db.onlinewebfonts.com/t/4c4c08af466e9ad071b6d69cf44093df.svg#Saol Display Regular')
+              format('svg');
         }
 
-        @font-face {font-family: "MTTMilano-UltraBold"; src: url("//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.eot"); src: url("//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.woff") format("woff"), url("//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.svg#MTTMilano-UltraBold") format("svg"); }
+        @font-face {
+          font-family: 'MTTMilano-UltraBold';
+          src: url('//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.eot');
+          src: url('//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.eot?#iefix')
+              format('embedded-opentype'),
+            url('//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.woff2')
+              format('woff2'),
+            url('//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.woff')
+              format('woff'),
+            url('//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.ttf')
+              format('truetype'),
+            url('//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.svg#MTTMilano-UltraBold')
+              format('svg');
+        }
         body {
           background: ${theme.bg.main};
           color: ${theme.colors.main};
@@ -172,17 +185,17 @@ export default function GlobalStyle() {
           margin-top: ${theme.columnGap};
         }
 
-        .logo{
+        .logo {
           position: fixed;
           top: 3vh;
           left: 3vh;
-          font-family: "MTTMilano-UltraBold";
+          font-family: 'MTTMilano-UltraBold';
           font-size: 40px;
           text-transform: uppercase;
           line-height: 0.75;
           z-index: -1;
           letter-spacing: -4px;
-          .item{
+          .item {
             display: block;
           }
         }
@@ -203,8 +216,24 @@ export default function GlobalStyle() {
           margin-left: auto;
           margin-right: auto;
         }
+        #svgtwo {
+          visibility: hidden;
+        }
+        #demo {
+          font-family: 'Roboto', sans-serif;
+          font-weight: 700;
 
-        .hide-text{display: block; position: relative;}
+          max-width: 100%;
+          max-height: 100%;
+        }
+        #mid,
+        #end {
+          visibility: hidden;
+        }
+        .hide-text {
+          display: block;
+          position: relative;
+        }
       `}
     />
   )

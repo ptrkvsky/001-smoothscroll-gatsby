@@ -5,43 +5,34 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
 
+import Scrollbar from 'react-smooth-scrollbar'
 import GlobalStyle from '../styles/Global'
-import Scrollbar from 'react-smooth-scrollbar';
-const Layout = ({ children }) => {
 
-  return (
-    <>
+const Layout = ({ children }) => (
+  <>
     <GlobalStyle />
     <div className="logo">
-        <span className="item">KOV</span>
-        <span className="item">DEV</span>
+      <span className="item">KOV</span>
+      <span className="item">DEV</span>
     </div>
-    <Scrollbar damping={0.05} >
-    <div style={{maxHeight: '100vh'}}>      
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: '90vw',
-          padding: `33vh 1.0875rem`,
-        }}
-      >
-        <main>
-
-          {children}
-        </main>
-
-        
+    <Scrollbar damping={0.05}>
+      <div style={{ maxHeight: '100vh' }}>
+        <div
+          style={{
+            margin: `0 auto`,
+            padding: `33vh 0 0 0`,
+          }}
+        >
+          <main>{children}</main>
+        </div>
       </div>
-      
-    </div>
     </Scrollbar>
-    </>
-  )
-}
+  </>
+)
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
