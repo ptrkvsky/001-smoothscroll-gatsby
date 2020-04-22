@@ -18,7 +18,7 @@ const MainTitle = styled('h1')`
 `
 
 const SectionWork = styled('section')`
-  background: #000;
+  background: #222328;
   padding: 10vh;
 `
 
