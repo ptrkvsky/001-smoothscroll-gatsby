@@ -178,6 +178,7 @@ export default function GlobalStyle() {
           font-size: 18px;
           font-family: ${theme.fonts.primary};
           min-height: 100vh;
+          overflow: hidden;
         }
 
         .main-container {
