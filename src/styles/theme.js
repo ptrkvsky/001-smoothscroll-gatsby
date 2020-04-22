@@ -1,21 +1,23 @@
 const theme = {
   colors: {
-    main: '#222328',
-    primary: '#230066',
+    main: '#000',
+    primary: '#1500f7',
   },
   bg: {
-    main: '#fcd645',
+    // main: '#ffcf00',
+    main: '#ffcf00',
+    second: '#000',
   },
   fonts: {
-    primary: "'Open Sans', serif",
-    title: "'Saol Display Regular', serif",
+    primary: "'Saol Display Regular', serif",
+    title: "'MTTMilano-UltraBold', serif",
   },
   fontSize: {
     button: '16px',
   },
   columnGap: '30px',
   radius: '4px',
-  maxWidth: '960px',
+  maxWidth: '80vw',
 }
 
 export default theme

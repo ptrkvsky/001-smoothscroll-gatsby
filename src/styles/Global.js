@@ -173,7 +173,7 @@ export default function GlobalStyle() {
               format('svg');
         }
         body {
-          background: ${theme.bg.main};
+          background: ${theme.bg.second};
           color: ${theme.colors.main};
           font-size: 18px;
           font-family: ${theme.fonts.primary};
