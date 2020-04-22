@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { Link } from 'gatsby'
-import { Power1, Expo, TimelineMax, morphSVG, Linear } from 'gsap'
+import { Power1, Expo, TimelineMax, Linear, gsap, CSSPlugin } from 'gsap'
 
 import Layout from '../components/layout'
 import Image from '../components/image'
@@ -17,14 +17,14 @@ import {
 } from '../styles/pages/index'
 
 const IndexPage = () => {
+  gsap.registerPlugin(CSSPlugin)
+
   const tl = useRef(null)
-  const svgOne = useRef(null)
   const fond = useRef(null)
-  tl.current = new TimelineMax()
 
   useEffect(() => {
-    console.log(svgOne.current)
-    tl.current.from(fond.current, 1.5, {
+    tl.current = new TimelineMax()
+    tl.current.from(document.querySelector('#fond'), 1.5, {
       height: 0,
       top: '50%',
       opacity: 0,
