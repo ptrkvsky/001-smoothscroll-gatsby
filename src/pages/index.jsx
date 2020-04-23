@@ -20,33 +20,54 @@ const IndexPage = () => {
   gsap.registerPlugin(CSSPlugin)
 
   const tl = useRef(null)
-  const fond = useRef(null)
+  let fond = useRef(null)
+  let kovsky = useRef(null)
+  let developer = useRef(null)
+  let ofSorrows = useRef(null)
 
   useEffect(() => {
     tl.current = new TimelineMax()
-    tl.current.from(document.querySelector('#fond'), 1.5, {
-      height: 0,
-      top: '50%',
-      opacity: 0,
-      ease: Linear.easeInOut,
-      delay: 0.5,
-    })
+    tl.current
+      .to(document.querySelector('body'), 0, { visibility: 'visible' })
+      .from(fond, 1.5, {
+        height: 0,
+        top: '50%',
+        opacity: 0.3,
+        ease: Power1.easeInOut,
+        delay: 0.5,
+      })
+      .from(kovsky, 0.5, {
+        yPercent: 100,
+        opacity: 0,
+        ease: Power1.easeInOut,
+      })
+      .from(
+        developer, 0.5
+        {
+          yPercent: 100,
+          opacity: 0,
+          ease: Power1.easeInOut,
+        },
+        '-=0.2'
+      )
   })
 
   return (
     <>
-      <Fond id="fond" ref={fond} className="fond" />>
+      <Fond id="fond" ref={el => (fond = el)} className="fond" />>
       <Layout>
         <SEO title="Home" />
         <MainTitle>
-          <span className="item hide-text">
-            Kovsky<span className="separation"></span>
+          <span className=" hide-text">
+            <span className="item" ref={el => (kovsky = el)}>
+              Kovsky
+            </span>
           </span>
-          <span className="item hide-text">
-            Developer<span className="separation"></span>
+          <span ref={el => (developer = el)} className="item hide-text">
+            Developer
           </span>
-          <span className="item hide-text">
-            Of Sorrows<span className="separation"></span>
+          <span ref={el => (ofSorrows = el)} className="item hide-text">
+            Of Sorrows
           </span>
         </MainTitle>
         <SectionWork>

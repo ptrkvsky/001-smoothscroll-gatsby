@@ -15,12 +15,8 @@ const MainTitle = styled('h1')`
   font-family: 'Saol Display Regular', serif;
   text-align: right;
   line-height: 1;
-
-  .separation {
-    position: absolute;
-    width: 20vw;
-    height: 10px;
-    background: #000;
+  .item {
+    display: inline-block;
   }
 `
 

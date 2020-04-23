@@ -179,6 +179,7 @@ export default function GlobalStyle() {
           font-family: ${theme.fonts.primary};
           min-height: 100vh;
           overflow: hidden;
+          visibility: hidden;
         }
 
         .main-container {
@@ -234,6 +235,7 @@ export default function GlobalStyle() {
         .hide-text {
           display: block;
           position: relative;
+          overflow: hidden;
         }
       `}
     />
