@@ -54,13 +54,12 @@ const TitleWork = styled('h2')`
   font-size: 11vw;
   text-align: right;
   color: #fff;
-  line-height: 0.88;
+  line-height: 0.38;
   .item {
     display: block;
     color: transparent;
     -webkit-text-stroke: 4px ${theme.colors.primary};
     font-family: ${theme.fonts.title};
-    line-height: 0.38;
     &:nth-child(2) {
       color: ${theme.colors.primary};
       mix-blend-mode: hard-light;
