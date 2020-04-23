@@ -42,7 +42,8 @@ const IndexPage = () => {
         ease: Power1.easeInOut,
       })
       .from(
-        developer, 0.5
+        developer,
+        0.5,
         {
           yPercent: 100,
           opacity: 0,
