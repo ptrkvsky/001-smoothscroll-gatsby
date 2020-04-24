@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
@@ -15,6 +15,8 @@ import Scrollbar from 'react-smooth-scrollbar'
 import GlobalStyle from '../styles/Global'
 
 const Layout = ({ children }) => {
+  console.log(Scrollbar)
+
   const tl = useRef(null)
   let refLogo = useRef(null)
   useEffect(() => {
@@ -29,6 +31,9 @@ const Layout = ({ children }) => {
     )
   }, [])
 
+  const childrenWithProps = React.Children.map(children, child =>
+    React.cloneElement(child, { mobile: true })
+  )
   return (
     <>
       <GlobalStyle />
@@ -36,7 +41,13 @@ const Layout = ({ children }) => {
         <span className="item">KOV</span>
         <span className="item">DEV</span>
       </div>
-      <Scrollbar damping={0.05}>
+      <Scrollbar
+        onScroll={(status, data) => {
+          console.log(data.offset)
+        }}
+        damping={0.05}
+      >
+        {console.log(Scrollbar)}
         <div style={{ maxHeight: '100vh' }}>
           <div
             style={{
@@ -44,7 +55,7 @@ const Layout = ({ children }) => {
               padding: `33vh 0 0 0`,
             }}
           >
-            <main>{children}</main>
+            <main>{childrenWithProps}</main>
           </div>
         </div>
       </Scrollbar>

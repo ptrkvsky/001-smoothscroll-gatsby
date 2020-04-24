@@ -172,13 +172,17 @@ export default function GlobalStyle() {
             url('//db.onlinewebfonts.com/t/dc085b992551ffb9efd9a0adb99a7918.svg#MTTMilano-UltraBold')
               format('svg');
         }
+
+        html {
+          scroll-behavior: smooth;
+        }
         body {
           background: ${theme.bg.second};
           color: ${theme.colors.main};
           font-size: 18px;
           font-family: ${theme.fonts.primary};
           min-height: 100vh;
-          overflow: hidden;
+
           visibility: hidden;
         }
 
@@ -236,6 +240,10 @@ export default function GlobalStyle() {
           display: block;
           position: relative;
           overflow: hidden;
+        }
+
+        .fadeIn {
+          opacity: 0;
         }
       `}
     />
