@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import girly from '../images/chuu.png'
+import { myContext } from '../context/Context'
 
 import {
   MainTitle,
@@ -15,8 +16,7 @@ import {
   Fond,
 } from '../styles/pages/index'
 
-const IndexPage = ({ mobile }) => {
-  console.log(mobile)
+const IndexPage = () => {
   gsap.registerPlugin(CSSPlugin)
   const tl = useRef(null)
 
@@ -56,6 +56,7 @@ const IndexPage = ({ mobile }) => {
 
   useEffect(() => {
     if (inView) {
+      console.log('InView !!!')
       fadeIn('.fadeIn')
     }
   }, [inView])
@@ -97,44 +98,72 @@ const IndexPage = ({ mobile }) => {
   }, [])
 
   return (
-    <>
-      <Fond id="fond" ref={el => (fond = el)} className="fond" />
-      <Layout>
-        <SEO title="Home" />
-        <MainTitle>
-          <span className=" hide-text">
-            <span className="item" ref={el => (kovsky = el)}>
-              Kovsky
-            </span>
-          </span>
-          <span ref={el => (developer = el)} className="item hide-text">
-            Developer
-          </span>
-          <span ref={el => (ofSorrows = el)} className="item hide-text">
-            Of Sorrows
-          </span>
-        </MainTitle>
+    <myContext.Consumer>
+      {context => (
+        <>
+          <Fond id="fond" ref={el => (fond = el)} className="fond" />
+          <Layout>
+            <SEO title="Home" />
+            <MainTitle>
+              <span className=" hide-text">
+                <span className="item" ref={el => (kovsky = el)}>
+                  Kovsky
+                </span>
+              </span>
+              <span ref={el => (developer = el)} className="item hide-text">
+                Developer
+              </span>
+              <span ref={el => (ofSorrows = el)} className="item hide-text">
+                Of Sorrows
+              </span>
+            </MainTitle>
 
-        <SectionWork ref={contentRef} id="section-work">
-          <div className="max-container">
-            <div className="grid">
-              <div>
-                <FeaturedWork>Featured Projects</FeaturedWork>
-                <ContainerImage className="container-image">
-                  <img src={girly} alt="title" />
-                </ContainerImage>
+            <SectionWork ref={contentRef} id="section-work">
+              <div className="max-container">
+                <div className="grid">
+                  <div>
+                    <FeaturedWork>Featured Projects</FeaturedWork>
+                    <ContainerImage className="container-image">
+                      <img
+                        style={{
+                          bottom: (context.scrollPosition / 25) * -1 + 50,
+                        }}
+                        src={girly}
+                        alt="title"
+                      />
+                    </ContainerImage>
+                  </div>
+
+                  <TitleWork className="fadeIn" id="work-title">
+                    <span className="item">WORK</span>
+                    <span className="item">WORK</span>
+                    <span className="item">WORK</span>
+                  </TitleWork>
+                </div>
               </div>
+            </SectionWork>
+            <SectionWork id="section-work">
+              <div className="max-container">
+                <div className="grid">
+                  <div>
+                    <FeaturedWork>Featured Projects</FeaturedWork>
+                    <ContainerImage className="container-image">
+                      <img src={girly} alt="title" />
+                    </ContainerImage>
+                  </div>
 
-              <TitleWork className="fadeIn" id="work-title">
-                <span className="item">WORK</span>
-                <span className="item">WORK</span>
-                <span className="item">WORK</span>
-              </TitleWork>
-            </div>
-          </div>
-        </SectionWork>
-      </Layout>
-    </>
+                  <TitleWork className="fadeIn" id="work-title">
+                    <span className="item">WORK</span>
+                    <span className="item">WORK</span>
+                    <span className="item">WORK</span>
+                  </TitleWork>
+                </div>
+              </div>
+            </SectionWork>
+          </Layout>
+        </>
+      )}
+    </myContext.Consumer>
   )
 }
 

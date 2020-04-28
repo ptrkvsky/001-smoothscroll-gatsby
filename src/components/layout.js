@@ -12,11 +12,10 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { Power1, TimelineMax, gsap, CSSPlugin } from 'gsap'
 
 import Scrollbar from 'react-smooth-scrollbar'
+import { myContext } from '../context/Context'
 import GlobalStyle from '../styles/Global'
 
 const Layout = ({ children }) => {
-  console.log(Scrollbar)
-
   const tl = useRef(null)
   let refLogo = useRef(null)
   useEffect(() => {
@@ -31,35 +30,35 @@ const Layout = ({ children }) => {
     )
   }, [])
 
-  const childrenWithProps = React.Children.map(children, child =>
-    React.cloneElement(child, { mobile: true })
-  )
   return (
-    <>
-      <GlobalStyle />
-      <div ref={el => (refLogo = el)} className="logo">
-        <span className="item">KOV</span>
-        <span className="item">DEV</span>
-      </div>
-      <Scrollbar
-        onScroll={(status, data) => {
-          console.log(data.offset)
-        }}
-        damping={0.05}
-      >
-        {console.log(Scrollbar)}
-        <div style={{ maxHeight: '100vh' }}>
-          <div
-            style={{
-              margin: `0 auto`,
-              padding: `33vh 0 0 0`,
-            }}
-          >
-            <main>{childrenWithProps}</main>
+    <myContext.Consumer>
+      {context => (
+        <>
+          <GlobalStyle />
+          <div ref={el => (refLogo = el)} className="logo">
+            <span className="item">KOV</span>
+            <span className="item">DEV</span>
           </div>
-        </div>
-      </Scrollbar>
-    </>
+          <Scrollbar
+            onScroll={(status, data) => {
+              context.updateScroll(data.offset.y)
+            }}
+            damping={0.05}
+          >
+            <div style={{ maxHeight: '100vh' }}>
+              <div
+                style={{
+                  margin: `0 auto`,
+                  padding: `33vh 0 0 0`,
+                }}
+              >
+                <main>{children}</main>
+              </div>
+            </div>
+          </Scrollbar>
+        </>
+      )}
+    </myContext.Consumer>
   )
 }
 
