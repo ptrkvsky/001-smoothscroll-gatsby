@@ -201,6 +201,9 @@ export default function GlobalStyle() {
           line-height: 0.75;
           z-index: -1;
           letter-spacing: -4px;
+          z-index: 100;
+          color: #fff;
+          mix-blend-mode: difference;
           .item {
             display: block;
           }
@@ -208,6 +211,10 @@ export default function GlobalStyle() {
 
         img {
           max-width: 100%;
+        }
+
+        .op0 {
+          opacity: 0;
         }
 
         a {

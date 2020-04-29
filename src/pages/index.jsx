@@ -23,7 +23,7 @@ const IndexPage = () => {
   let fond = useRef(null)
   let kovsky = useRef(null)
   let developer = useRef(null)
-  let ofSorrows = useRef(null)
+  // let ofSorrows = useRef(null)
 
   // scroll section
   const tlScroll = useRef(null)
@@ -54,12 +54,35 @@ const IndexPage = () => {
     })
   }
 
+  const ofSorrowsAnim = element => {
+    gsap.to(element, 1, {
+      opacity: 1,
+      y: -20,
+      ease: 'power2.out',
+      stagger: {
+        amount: 0.3,
+      },
+    })
+  }
+
+  // Display "of sorrows"
+  const [contentSorrows, inViewSorrows] = useInView({
+    triggerOnce: true,
+    rootMargin: '-300px',
+  })
+
   useEffect(() => {
     if (inView) {
-      console.log('InView !!!')
       fadeIn('.fadeIn')
     }
   }, [inView])
+
+  useEffect(() => {
+    if (inViewSorrows) {
+      console.log('inView')
+      ofSorrowsAnim('#ofSorrows')
+    }
+  }, [contentSorrows, inViewSorrows])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,16 +103,16 @@ const IndexPage = () => {
         ease: Power2.easeInOut,
         delay: 0.5,
       })
-      .from(kovsky, 0.5, {
-        yPercent: 100,
+      .from(kovsky, 0.8, {
+        y: 20,
         opacity: 0,
         ease: Power2.easeInOut,
       })
       .from(
         developer,
-        0.5,
+        0.8,
         {
-          yPercent: 100,
+          y: 20,
           opacity: 0,
           ease: Power2.easeInOut,
         },
@@ -113,7 +136,11 @@ const IndexPage = () => {
               <span ref={el => (developer = el)} className="item hide-text">
                 Developer
               </span>
-              <span ref={el => (ofSorrows = el)} className="item hide-text">
+              <span
+                ref={contentSorrows}
+                id="ofSorrows"
+                className="item hide-text op0"
+              >
                 Of Sorrows
               </span>
             </MainTitle>
@@ -151,7 +178,6 @@ const IndexPage = () => {
                       <img src={girly} alt="title" />
                     </ContainerImage>
                   </div>
-
                   <TitleWork className="fadeIn" id="work-title">
                     <span className="item">WORK</span>
                     <span className="item">WORK</span>
