@@ -202,8 +202,8 @@ export default function GlobalStyle() {
           z-index: -1;
           letter-spacing: -4px;
           z-index: 100;
-          color: #fff;
-          mix-blend-mode: difference;
+          color: #fbff00;
+          mix-blend-mode: exclusion;
           .item {
             display: block;
           }
