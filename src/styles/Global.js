@@ -217,6 +217,10 @@ export default function GlobalStyle() {
           opacity: 0;
         }
 
+        .m-t-15 {
+          margin-top: 15px;
+        }
+
         a {
           color: ${theme.colors.primary};
           text-decoration: none;

@@ -31,7 +31,6 @@ const SectionWork = styled('section')`
 `
 
 const ContainerImage = styled('div')`
-  margin-top: 20vh;
   display: inline-block;
   background: ${theme.colors.primary};
   position: relative;
@@ -39,6 +38,7 @@ const ContainerImage = styled('div')`
   min-height: 630px;
   position: relative;
   width: 100%;
+  margin-top: 15px;
 
   img {
     position: absolute;

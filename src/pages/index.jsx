@@ -150,15 +150,6 @@ const IndexPage = () => {
                 <div className="grid">
                   <div>
                     <FeaturedWork>Featured Projects</FeaturedWork>
-                    <ContainerImage className="container-image">
-                      <img
-                        style={{
-                          bottom: (context.scrollPosition / 25) * -1 + 50,
-                        }}
-                        src={girly}
-                        alt="title"
-                      />
-                    </ContainerImage>
                   </div>
 
                   <TitleWork className="fadeIn" id="work-title">
@@ -167,22 +158,16 @@ const IndexPage = () => {
                     <span className="item">WORK</span>
                   </TitleWork>
                 </div>
-              </div>
-            </SectionWork>
-            <SectionWork id="section-work">
-              <div className="max-container">
                 <div className="grid">
-                  <div>
-                    <FeaturedWork>Featured Projects</FeaturedWork>
-                    <ContainerImage className="container-image">
-                      <img src={girly} alt="title" />
-                    </ContainerImage>
-                  </div>
-                  <TitleWork className="fadeIn" id="work-title">
-                    <span className="item">WORK</span>
-                    <span className="item">WORK</span>
-                    <span className="item">WORK</span>
-                  </TitleWork>
+                  <ContainerImage className="container-image m-t-15">
+                    <img
+                      style={{
+                        bottom: (context.scrollPosition / 25) * -1 + 50,
+                      }}
+                      src={girly}
+                      alt="title"
+                    />
+                  </ContainerImage>
                 </div>
               </div>
             </SectionWork>
