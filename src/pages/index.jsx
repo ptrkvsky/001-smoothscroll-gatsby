@@ -68,7 +68,7 @@ const IndexPage = () => {
   // Display "of sorrows"
   const [contentSorrows, inViewSorrows] = useInView({
     triggerOnce: true,
-    rootMargin: '-300px',
+    rootMargin: '-150px',
   })
 
   useEffect(() => {

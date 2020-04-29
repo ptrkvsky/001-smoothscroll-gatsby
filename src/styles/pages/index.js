@@ -15,6 +15,7 @@ const MainTitle = styled('h1')`
   font-family: 'Saol Display Regular', serif;
   text-align: right;
   line-height: 1;
+  color: #0030ff;
   .item {
     display: inline-block;
   }
