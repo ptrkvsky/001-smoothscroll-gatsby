@@ -217,6 +217,10 @@ export default function GlobalStyle() {
           opacity: 0;
         }
 
+        .d-block {
+          display: block;
+        }
+
         .m-t-15 {
           margin-top: 15px;
         }

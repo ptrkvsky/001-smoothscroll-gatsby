@@ -1,6 +1,13 @@
 import React, { useEffect, useRef } from 'react'
 import { Link } from 'gatsby'
-import gsap, { Power2, TimelineMax, TweenMax, CSSPlugin } from 'gsap'
+import gsap, {
+  Power2,
+  Power4,
+  Expo,
+  TimelineMax,
+  TweenMax,
+  CSSPlugin,
+} from 'gsap'
 import { useInView } from 'react-intersection-observer'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -14,11 +21,13 @@ import {
   TitleWork,
   FeaturedWork,
   Fond,
+  TxtBottomRight,
 } from '../styles/pages/index'
 
 const IndexPage = () => {
   gsap.registerPlugin(CSSPlugin)
   const tl = useRef(null)
+  const tlProject1 = useRef(null)
 
   let fond = useRef(null)
   let kovsky = useRef(null)
@@ -65,18 +74,55 @@ const IndexPage = () => {
     })
   }
 
+  const project1Anim = () => {
+    tlProject1.current = new TimelineMax()
+    tlProject1.current
+      .to('.cover-image', 1, {
+        width: 0,
+      })
+      .from(
+        '#project1 img',
+        0.8,
+        {
+          scale: 1.2,
+        },
+        '-=-0.5'
+      )
+      .to('#project1-category', 0.5, {
+        opacity: 0.8,
+        xPercent: 0,
+        ease: 'Expo.inout',
+      })
+      .to('.number .item', 0.5, {
+        opacity: 1,
+        xPercent: 0,
+        ease: 'power4.out',
+        stagger: {
+          amount: 0.27,
+        },
+      })
+  }
+
   // Display "of sorrows"
   const [contentSorrows, inViewSorrows] = useInView({
     triggerOnce: true,
     rootMargin: '-150px',
   })
 
+  // Display "of sorrows"
+  const [project1, inViewproject1] = useInView({
+    triggerOnce: true,
+    rootMargin: '-400px',
+  })
+
+  // Animate "WORK" on scroll
   useEffect(() => {
     if (inView) {
       fadeIn('.fadeIn')
     }
   }, [inView])
 
+  // Animate "of sorrows" on scroll
   useEffect(() => {
     if (inViewSorrows) {
       console.log('inView')
@@ -84,14 +130,14 @@ const IndexPage = () => {
     }
   }, [contentSorrows, inViewSorrows])
 
+  //  Animate vertical Category on view
   useEffect(() => {
-    const handleScroll = () => {
-      // Get de position of image element on Y
-      console.log('issou')
+    if (inViewproject1) {
+      project1Anim()
     }
-    window.addEventListener('scroll', handleScroll)
-    // SCROLL WORK
+  }, [project1, inViewproject1])
 
+  useEffect(() => {
     // Opening
     tl.current = new TimelineMax()
     tl.current
@@ -158,8 +204,9 @@ const IndexPage = () => {
                     <span className="item">WORK</span>
                   </TitleWork>
                 </div>
-                <div className="grid">
+                <div ref={project1} id="project1" className="grid">
                   <ContainerImage className="container-image m-t-15">
+                    <span className="cover-image"></span>
                     <img
                       style={{
                         bottom: (context.scrollPosition / 25) * -1 + 50,
@@ -168,6 +215,22 @@ const IndexPage = () => {
                       alt="title"
                     />
                   </ContainerImage>
+                  <TxtBottomRight className="txt-bottom-right">
+                    <div className="content">
+                      <span className="number">
+                        <div className="hide-text">
+                          <span className="item">0</span>
+                          <span className="item">1</span>
+                        </div>
+                      </span>
+                      <span className="title">Chou Seoul</span>
+                      <span className="category hide-text">
+                        <span id="project1-category" className="d-block op0">
+                          Website
+                        </span>
+                      </span>
+                    </div>
+                  </TxtBottomRight>
                 </div>
               </div>
             </SectionWork>
