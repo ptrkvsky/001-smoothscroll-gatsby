@@ -127,6 +127,14 @@ const TxtBottomRight = styled('div')`
       transform: translateX(-50%);
     }
   }
+
+  .title {
+    .item {
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+  }
 `
 
 export {

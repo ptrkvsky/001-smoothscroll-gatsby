@@ -101,6 +101,11 @@ const IndexPage = () => {
           amount: 0.27,
         },
       })
+      .to('.title .item', 0.5, {
+        opacity: 1,
+        xPercent: 0,
+        ease: 'power4.out',
+      })
   }
 
   // Display "of sorrows"
@@ -223,7 +228,9 @@ const IndexPage = () => {
                           <span className="item">1</span>
                         </div>
                       </span>
-                      <span className="title">Chou Seoul</span>
+                      <span className="title hide-text">
+                        <span className="item">Chou Seoul</span>
+                      </span>
                       <span className="category hide-text">
                         <span id="project1-category" className="d-block op0">
                           Website
